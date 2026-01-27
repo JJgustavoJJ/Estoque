@@ -20,4 +20,4 @@ Route::POST('/Cliente',[ClienteController::class,'store']);
 
 Route::DELETE('/Entrada/delete/{id}',[EntradaController::class, 'delete' ]);
 Route::GET('/Entrada/{id}',[EntradaController::class, 'index' ]);
-Route::POST('/Entrada',[EntradaController::class, 'store' ]);
+Route::POST('/Entrada',[EntradaController::class, 'store' ]);   

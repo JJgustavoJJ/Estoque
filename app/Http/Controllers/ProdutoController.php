@@ -35,35 +35,17 @@ return response()->json($produto);
         return response()->json([$produto]);
     }
 
-  public function delete($id)
-    {
+      public function delete($id){
         $produto = Produto::find($id);
-
-        if (!$produto) {
-            return response()->json(["mensagem" => 'ID não encontrado']);
-        }if(isset($request->id)){
-$produto->$id = $request->id;
+        if($produto == null){
+             return response()->json(["mensagem" => 'ID não encontrado']);
         }
-         if(isset($request->marca)){
-$produto->marca = $request->marca;
-        }
-         if(isset($request->id)){
-$produto->descricao = $request->id;
-        }
-         if(isset($request->id)){
-$produto->valor_unitario = $request->id;
-        }
-        if(isset($request->id)){
-$produto->quantidade_estoque = $request->id;
-        }
-         if(isset($request->id)){
-$produto->faixa_etaria_minima = $request->id;
-        }
-
-
-        $produto->delete();
-
-        return response()->json(["mensagem" => 'deletado com sucesso']);
+       $produto->delete();
+       return response()->json([
+        "mensagem" => 'deletado'
+       ]);
     }
+
+      
 
 }
