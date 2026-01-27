@@ -14,7 +14,9 @@ $produto = Produto::create([
     'valor_unitario'=>$request->valor_unitario,
     'quantidade_estoque'=>$request->quantidade_estoque,
     'faixa_etaria_minima'=>$request->faixa_etaria_minima
+    
 ]);
+return response()->json($produto);
     }
     public function index(){
         $produto = Produto::all();
