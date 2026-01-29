@@ -14,9 +14,11 @@ class EntradaController extends Controller
             return response()->json([
                 'mensagem' => 'não encontrado'
             ]);
+        }
             $entrada = Entrada::create([
             'id_produto'=>$request->id_produto,
             'quantidade'=>$request->quantidade
+
         ]);
         if(isset($request->quantidade)){
             $produto->quantidade_estoque += $request->quantidade;
@@ -24,7 +26,7 @@ class EntradaController extends Controller
         $produto->update();
         return response()->json('Atualizado');
     }
-}
+
 
     public function index(){
         $entrada = Entrada::all();
@@ -34,10 +36,12 @@ class EntradaController extends Controller
     public function delete(Request $request, $id){
         $entrada = Entrada::find($id);
         $produto = Produto::find($request->id_produto);
+        
         if($produto == null){
             return response()->json([
                 'mensagem' => 'não encontrado'
             ]);
+        }
      if(isset($request->quantidade)){
             $produto->quantidade_estoque -= $request->quantidade;
         }
@@ -46,4 +50,4 @@ class EntradaController extends Controller
     }
     }
 
-}
+

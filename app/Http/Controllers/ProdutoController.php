@@ -7,7 +7,7 @@ use App\Models\Produto;
 
 class ProdutoController extends Controller
 {
-    public function store (Request $request){
+    public function store(Request $request){
 $produto = Produto::create([
     'marca'=>$request->marca,
     'descricao'=>$request->descricao,
